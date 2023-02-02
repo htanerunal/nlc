@@ -34,6 +34,7 @@ bool getXOrMask(bool maskArray[], bool outputArray[], int n);
 bool getXNOrMask(bool maskArray[], bool outputArray[], int n);
 int findMax(float arr[], int n, int gateCount[], int popIndex[]);
 int seed;
+int fold;
 
 int main(int argc, const char * argv[]) {
 
@@ -43,8 +44,11 @@ int main(int argc, const char * argv[]) {
     //srand(time.tv_usec);
 
     //Randomize with a number
-    seed = 0;
+    seed = 5;
     srand(seed);
+
+    //Select K-Fold segment
+    fold = 2;
 
     //Read CSV File
     std::ifstream myFile("mammograph.csv");
@@ -280,7 +284,7 @@ int main(int argc, const char * argv[]) {
     //Define initial max number of gates. This number will be increased gradually over iterations
     float initialMaxGates = 1.0f;
     //Number of max connections for each gate. Determined randomly (minimum=2)
-    int connectMax = 5;
+    int connectMax = 4;
     //Are we going to use XOR gates (XOR-XNOR)?
     bool useXOR= true;
     int maxGateType;
@@ -319,7 +323,7 @@ int main(int argc, const char * argv[]) {
 
     //Evaluation Parameters
     bool useKFold= true;
-    int currentKFold=9;
+    int currentKFold=fold;
 
     //Let's start GA!
     //Create Initial Population
