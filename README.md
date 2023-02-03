@@ -1,2 +1,2 @@
-# nlc
-Neural Logic Circuits
+Neural Logic Circuits (NLC)
+Hamit Taner Ünal & Prof.Fatih Başçiftçi
